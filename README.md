@@ -13,7 +13,7 @@ WEBSITE-BAUMEISTER/ Frontend
 ├── node_modules/
 ├── src/
 │ └── components/
-│ └── Footer.js
+│ └── Footer.html
 |
 ├── assets/
 │ └── images/
@@ -39,11 +39,11 @@ npm install -D vite @tailwindcss/vite
 
 package.json
 
-  "scripts": {
-    "dev":"vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+"script":{
+"dev":"vite",
+"build": "vite build",
+"preview": "vite preview"
+}
 
 ### How to run dev
 

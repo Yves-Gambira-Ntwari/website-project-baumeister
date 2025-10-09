@@ -39,11 +39,11 @@ npm install -D vite @tailwindcss/vite
 
 package.json
 
-"script":{
-"dev":"vite",
-"build": "vite build",
-"preview": "vite preview"
-}
+  "scripts": {
+    "dev":"vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
 
 ### How to run dev
 

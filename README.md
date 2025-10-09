@@ -17,13 +17,13 @@ WEBSITE-BAUMEISTER/ Frontend
 |
 ├── assets/
 │ └── images/
-| |**css/style.css
+| |__css/style.css
 │
 ├── LICENSE
 ├── package-lock.json
 ├── package.json
 ├── .gitignore
-|**index.html
+|__index.html
 └── README.md
 ```
 ### ⚠️Run these commands to get on truck

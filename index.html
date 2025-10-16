@@ -6,9 +6,26 @@
   <title>Document</title>
   <link rel="stylesheet" href="src//assets/css/style.css">
 </head>
+<script>
+    const loadComponents = (id, url) =>  {
+        fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
+            document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    window.onload = () => {
+        loadComponents('header', 'src/sections/header.html');
+        loadComponents('hero', 'src/sections/hero.html');
+        loadComponents('contact', 'src/sections/contact.html');
+        loadComponents('footer', 'src/sections/footer.html');
+    }
+</script>
 <body>
-<div>
-  <iframe src="/src/components/navigation.html" class="w-full h-100" frameborder="0"></iframe>
-</div>
+   <div id="header"></div>
+    <div id="hero"></div>
+    <div id="contact"></div>
+    <div id="footer"></div>
 </body>
 </html>

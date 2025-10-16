@@ -4,24 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="src//assets/css/style.css">
+  <link rel="stylesheet" href="src/assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<script>
-    const loadComponents = (id, url) =>  {
-        fetch(url)
+
+<body class="bg-[#f1eeeb]">
+
+  <!-- Load Components -->
+  <div id="navigation"></div>
+
+  <main class="p-10">
+    <!-- Your page content here -->
+    <h1 class="text-4xl font-bold">Welcome to My Website</h1>
+    <p class="mt-4">This is the home page.</p>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    const loadComponents = (id, url) => {
+      fetch(url)
         .then((response) => response.text())
         .then((html) => {
-            document.getElementById(id).innerHTML = html;
+          document.getElementById(id).innerHTML = html;
+
+          // Re-attach event listeners after component loads
+          if (id === 'navigation') {
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            if (menuBtn) {
+              menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuBtn.textContent = mobileMenu.classList.contains("hidden") ? "☰" : "X";
+              });
+            }
+          }
         });
     }
 
     window.onload = () => {
-        loadComponents('navigation', 'src/components/navigation.html');
-        loadComponents('footer', 'src/components/footer.html');
+      loadComponents('navigation', 'src/components/navigation.html');
+      loadComponents('footer', 'src/components/footer.html');
     }
-</script>
-<body>
-   <div id="navigation"></div>
-    <div id="footer"></div>
+  </script>
+
 </body>
 </html>

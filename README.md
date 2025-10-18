@@ -39,7 +39,7 @@ npm install -D vite @tailwindcss/vite
 
 package.json
 
-"script":{
+"scripts":{
 "dev":"vite",
 "build": "vite build",
 "preview": "vite preview"
@@ -63,3 +63,20 @@ npm run dev
 - refactor: Code changes that don’t change \* behavior but improve structure
 - test: Adding or modifying tests
 - chore: Maintenance tasks, builds, or dependency updates
+
+
+### Navigation System
+
+This project includes a fully responsive navigation bar built with Tailwind CSS and a lightweight JavaScript toggle.
+
+✅ Features
+
+- Single source of menu links (no duplicate HTML for mobile & desktop)
+
+- Desktop: Horizontal layout with inline links
+
+- Mobile/Tablet: Animated toggle button (☰ / X) that reveals a vertical dropdown
+
+- Minimal JavaScript: Only one toggle function
+
+- Clean & optimized Tailwind classes

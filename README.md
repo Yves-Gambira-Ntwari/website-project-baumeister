@@ -8,7 +8,7 @@ The purpose is to learn and to know how to collaborate with others
 ### The structure of our project
 
 ```bash 
-WEBSITE-BAUMEISTER/ Frontend
+WEBSITE-BAUMEISTER/
 │
 ├── node_modules/
 ├── src/

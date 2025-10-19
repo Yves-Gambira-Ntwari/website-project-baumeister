@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" crossorigin href="/assets/index-BqDGfZk1.css">
+</head>
+
+<body class="bg-[#f1eeeb]">
+
+  <!-- Load Components -->
+  <div id="navigation"></div>
+  <div id="main-section"></div>
+  <div id="parterners"></div>
+  <div id="contact"></div>
+
+  <div id="footer"></div>
+
+
+  <!-- this the responsiveness of mobile on phone I used in implementing the proper design below -->
+  <script>
+    const loadComponents = (id, url) => {
+      fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById(id).innerHTML = html;
+
+          // Re-attach event listeners after component loads
+          if (id === 'navigation') {
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            if (menuBtn) {
+              menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuBtn.textContent = mobileMenu.classList.contains("hidden") ? "☰" : "X";
+              });
+            }
+          }
+        });
+    }
+
+    window.onload = () => {
+      loadComponents('navigation', 'src/components/navigation.html');
+      loadComponents('footer', 'src/components/footer.html');
+      loadComponents('main-section', 'src/components/main-section.html');
+      loadComponents('parterners', 'src/components/parterners.html');
+      loadComponents('contact', 'src/components/contact.html');
+      loadComponents('Privacy_policy.html', 'src/components/Privacy_policy.html');
+    }
+  </script>
+
+</body>
+</html>

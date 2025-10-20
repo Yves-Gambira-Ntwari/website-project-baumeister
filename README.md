@@ -80,3 +80,6 @@ This project includes a fully responsive navigation bar built with Tailwind CSS 
 - Minimal JavaScript: Only one toggle function
 
 - Clean & optimized Tailwind classes
+
+
+

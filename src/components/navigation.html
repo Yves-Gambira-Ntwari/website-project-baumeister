@@ -13,7 +13,7 @@
   
     <!-- Right: Vertical Links (Desktop Only) -->
     <nav class="hidden lg:flex flex-col text-green-800 text-lg text-right font-medium ">
-      <a href="#">About</a>
+      <a href="" id="about-link">About</a>
       <a href="#">Services</a>
       <a href="#">References</a>
       <a href="/contact.html">Contact</a>
@@ -26,11 +26,25 @@
     </button>
   
   </header>
+  <div id="content"></div>
+  <script>
+function loadAbout() {
+  fetch('subcomponent-main-section.html')
+    .then(response => response.text())
+    .then(data => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = data;
+
+      const aboutSection = tempDiv.querySelector('#about-info'); 
+      document.getElementById('content').innerHTML = aboutSection ? aboutSection.innerHTML : 'Content not found';
+    });
+}
+</script>
   
   <!-- Dropdown Menu for Mobile/Tablet -->
   <div id="mobileMenu"
     class="hidden flex flex-col items-center text-green-800 text-2xl px-5 py-6 font-bold space-y-6 bg-[#f1eeeb] border-t">
-    <a href="#" class="hover:underline">About</a>
+    <a href="#" class="hover:underline ">About</a>
     <a href="#" class="hover:underline">Services</a>
     <a href="#" class="hover:underline">References</a>
     <a href="#" class="hover:underline">Contact</a>

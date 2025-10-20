@@ -37,6 +37,53 @@
                 menuBtn.textContent = mobileMenu.classList.contains("hidden") ? "☰" : "X";
               });
             }
+            attachNavLinks();
+          }
+        });
+    }
+    function attachNavLinks() {
+      const sectionMap = {
+        about: { file: '/components/subcomponent-main-section.html', id: 'about-info' },
+        service: { file: '/components/subcomponent-main-section.html', id: 'service-info' },
+        reference: { file: '/components/parterners.html', id: 'reference-info' }
+      };
+
+      Object.keys(sectionMap).forEach(key => {
+        const desktopLink = document.getElementById(`${key}-link-desktop`);
+        const mobileLink = document.getElementById(`${key}-link-mobile`);
+
+        if (desktopLink) {
+          desktopLink.addEventListener("click", e => {
+            e.preventDefault();
+            loadSubcomponent(sectionMap[key].file, sectionMap[key].id);
+          });
+        }
+
+        if (mobileLink) {
+          mobileLink.addEventListener("click", e => {
+            e.preventDefault();
+            loadSubcomponent(sectionMap[key].file, sectionMap[key].id);
+            document.getElementById("mobileMenu").classList.add("hidden");
+          });
+        }
+      });
+    }
+
+    function loadSubcomponent(filePath, targetId) {
+      const container = document.getElementById("subcomponent");
+
+      fetch(filePath)
+        .then(res => res.text())
+        .then(html => {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = html;
+          const section = tempDiv.querySelector(`#${targetId}`);
+
+          if (section) {
+            container.innerHTML = section.outerHTML;
+            container.scrollIntoView({ behavior: "smooth" });
+          } else {
+            container.innerHTML = <p>Section "${targetId}" not found!</p>;
           }
         });
     }

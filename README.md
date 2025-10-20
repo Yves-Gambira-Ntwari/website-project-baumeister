@@ -1,19 +1,21 @@
 # website-project-baumeister
 
 ## website-Baumeister
+
 The purpose is to learn and to know how to collaborate with others
 
 ### 🧭 Project Setup and Git Remote Configuration
 
 ### The structure of our project
 
-```bash 
+```bash
 WEBSITE-BAUMEISTER/
 │
 ├── node_modules/
-├── src/
-│ └── components/
-│ └── Footer.html
+├── public/
+| |__pulblic
+|  └── components/
+│   └── Footer.html
 |
 ├── assets/
 │ └── images/
@@ -26,6 +28,7 @@ WEBSITE-BAUMEISTER/
 |__index.html
 └── README.md
 ```
+
 ### ⚠️Run these commands to get on truck
 
 ```bash
@@ -63,7 +66,6 @@ npm run dev
 - refactor: Code changes that don’t change \* behavior but improve structure
 - test: Adding or modifying tests
 - chore: Maintenance tasks, builds, or dependency updates
-
 
 ### Navigation System
 

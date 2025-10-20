@@ -25,7 +25,6 @@
         .then((html) => {
           document.getElementById(id).innerHTML = html;
 
-          // ✅ Re-attach menu toggle for mobile
           if (id === 'navigation') {
             const menuBtn = document.getElementById("menuBtn");
             const mobileMenu = document.getElementById("mobileMenu");
@@ -36,20 +35,39 @@
               });
             }
 
-            // ✅ Handle About Click
-            const aboutLink = document.getElementById("about-link"); // <-- Make sure this ID exists in navigation.html
-            if (aboutLink) {
-              aboutLink.addEventListener("click", (e) => {
-                e.preventDefault();
-                showAboutSection();
-              });
-            }
+            attachNavLinks();
           }
         });
     }
 
-    // ✅ Function to load only #about-info from subcomponent file
-    function showAboutSection() {
+    function attachNavLinks() {
+      const sectionMap = {
+        about: "about-info",
+        service: "service-info"
+      };
+
+      Object.keys(sectionMap).forEach(key => {
+        const desktopLink = document.getElementById(`${key}-link-desktop`);
+        const mobileLink = document.getElementById(`${key}-link-mobile`);
+        
+        if (desktopLink) {
+          desktopLink.addEventListener("click", e => {
+            e.preventDefault();
+            loadSubcomponent(sectionMap[key]);
+          });
+        }
+
+        if (mobileLink) {
+          mobileLink.addEventListener("click", e => {
+            e.preventDefault();
+            loadSubcomponent(sectionMap[key]);
+            document.getElementById("mobileMenu").classList.add("hidden");
+          });
+        }
+      });
+    }
+
+    function loadSubcomponent(targetId) {
       const container = document.getElementById("subcomponent");
 
       fetch('src/components/subcomponent-main-section.html')
@@ -57,18 +75,17 @@
         .then(html => {
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
-          const aboutInfo = tempDiv.querySelector('#about-info');
+          const section = tempDiv.querySelector(`#${targetId}`);
 
-          if (aboutInfo) {
-            container.innerHTML = aboutInfo.outerHTML;
+          if (section) {
+            container.innerHTML = section.outerHTML;
             container.scrollIntoView({ behavior: "smooth" });
           } else {
-            container.innerHTML = "<p>About section not found!</p>";
+            container.innerHTML = `<p>Section "${targetId}" not found!</p>`;
           }
         });
     }
 
-    // ✅ Load all static parts initially
     window.onload = () => {
       loadComponents('navigation', 'src/components/navigation.html');
       loadComponents('footer', 'src/components/footer.html');

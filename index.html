@@ -42,35 +42,36 @@
 
     function attachNavLinks() {
       const sectionMap = {
-        about: "about-info",
-        service: "service-info"
+        about: { file: 'src/components/subcomponent-main-section.html', id: 'about-info' },
+        service: { file: 'src/components/subcomponent-main-section.html', id: 'service-info' },
+        reference: { file: 'src/components/parterners.html', id: 'reference-info' }
       };
 
       Object.keys(sectionMap).forEach(key => {
         const desktopLink = document.getElementById(`${key}-link-desktop`);
         const mobileLink = document.getElementById(`${key}-link-mobile`);
-        
+
         if (desktopLink) {
           desktopLink.addEventListener("click", e => {
             e.preventDefault();
-            loadSubcomponent(sectionMap[key]);
+            loadSubcomponent(sectionMap[key].file, sectionMap[key].id);
           });
         }
 
         if (mobileLink) {
           mobileLink.addEventListener("click", e => {
             e.preventDefault();
-            loadSubcomponent(sectionMap[key]);
+            loadSubcomponent(sectionMap[key].file, sectionMap[key].id);
             document.getElementById("mobileMenu").classList.add("hidden");
           });
         }
       });
     }
 
-    function loadSubcomponent(targetId) {
+    function loadSubcomponent(filePath, targetId) {
       const container = document.getElementById("subcomponent");
 
-      fetch('src/components/subcomponent-main-section.html')
+      fetch(filePath)
         .then(res => res.text())
         .then(html => {
           const tempDiv = document.createElement('div');

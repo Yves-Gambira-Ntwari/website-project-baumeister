@@ -1,12 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="src//assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
 </head>
-<body>
-  <h1>hello</h1>
+
+<body class="bg-[#f1eeeb]">
+  <!-- Load Components -->
+  <div id="navigation"></div>
+  <div id="main-section"></div>
+  <div id="subcomponent"></div>
+  <div id="parterners"></div>
+  <div id="contact"></div>
+  <div id="footer"></div>
+
+
+  <!-- this the responsiveness of mobile on phone I used in implementing the proper design below -->
+  <script>
+    const loadComponents = (id, url) => {
+      fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById(id).innerHTML = html;
+
+          // Re-attach event listeners after component loads
+          if (id === 'navigation') {
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            if (menuBtn) {
+              menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuBtn.textContent = mobileMenu.classList.contains("hidden") ? "☰" : "X";
+              });
+            }
+            attachNavLinks();
+          }
+        });
+    }
+    function attachNavLinks() {
+      const sectionMap = {
+        about: { file: '/components/subcomponent-main-section.html', id: 'about-info' },
+        service: { file: '/components/subcomponent-main-section.html', id: 'service-info' },
+        reference: { file: '/components/parterners.html', id: 'reference-info' }
+      };
+
+      Object.keys(sectionMap).forEach(key => {
+        const desktopLink = document.getElementById(`${key}-link-desktop`);
+        const mobileLink = document.getElementById(`${key}-link-mobile`);
+
+        if (desktopLink) {
+          desktopLink.addEventListener("click", e => {
+            e.preventDefault();
+            loadSubcomponent(sectionMap[key].file, sectionMap[key].id);
+          });
+        }
+
+        if (mobileLink) {
+          mobileLink.addEventListener("click", e => {
+            e.preventDefault();
+            loadSubcomponent(sectionMap[key].file, sectionMap[key].id);
+            document.getElementById("mobileMenu").classList.add("hidden");
+          });
+        }
+      });
+    }
+
+    function loadSubcomponent(filePath, targetId) {
+      const container = document.getElementById("subcomponent");
+
+      fetch(filePath)
+        .then(res => res.text())
+        .then(html => {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = html;
+          const section = tempDiv.querySelector(`#${targetId}`);
+
+          if (section) {
+            container.innerHTML = section.outerHTML;
+            container.scrollIntoView({ behavior: "smooth" });
+          } else {
+            // container.innerHTML = `<p>Section "${targetId}" not found! </p>`;
+          }
+        });
+    }
+
+    window.onload = () => {
+      loadComponents('navigation', '/components/navigation.html');
+      loadComponents('footer', '/components/footer.html');
+      loadComponents('main-section', '/components/main-section.html');
+      loadComponents('parterners', '/components/parterners.html');
+      loadComponents('contact', '/components/contact.html');
+      loadComponents('Privacy_policy', '/components/Privacy_policy.html');
+      loadComponents('subcomponent',' /components/subcomponent-main-section.html');
+    }
+  </script>
+
 </body>
 </html>

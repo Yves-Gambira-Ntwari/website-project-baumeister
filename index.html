@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="src/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
 </head>
 
 <body class="bg-[#f1eeeb]">
-
   <!-- Load Components -->
   <div id="navigation"></div>
   <div id="main-section"></div>
@@ -21,47 +20,37 @@
 
 
   <!-- this the responsiveness of mobile on phone I used in implementing the proper design below -->
-<script>
-  const loadComponents = (id, url) => {
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) throw new Error(`Failed to load ${url}: ${response.status}`);
-        return response.text();
-      })
-      .then((html) => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.innerHTML = html;
-        } else {
-          console.warn(`Element with id "${id}" not found in the page.`);
-        }
+  <script>
+    const loadComponents = (id, url) => {
+      fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById(id).innerHTML = html;
 
-        // Re-attach event listeners after navigation loads
-        if (id === 'navigation') {
-          const menuBtn = document.getElementById("menuBtn");
-          const mobileMenu = document.getElementById("mobileMenu");
-          if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener("click", () => {
-              mobileMenu.classList.toggle("hidden");
-              menuBtn.textContent = mobileMenu.classList.contains("hidden") ? "☰" : "X";
-            });
+          // Re-attach event listeners after component loads
+          if (id === 'navigation') {
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            if (menuBtn) {
+              menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuBtn.textContent = mobileMenu.classList.contains("hidden") ? "☰" : "X";
+              });
+            }
           }
-        }
-      })
-      .catch((error) => console.error(error));
-  };
+        });
+    }
 
-  window.onload = () => {
-    loadComponents('navigation', 'src/components/navigation.html');
-    loadComponents('footer', 'src/components/footer.html');
-    loadComponents('main-section', 'src/components/main-section.html');
-    loadComponents('parterners', 'src/components/parterners.html');
-    loadComponents('contact', 'src/components/contact.html');
-    loadComponents('Privacy_policy', 'src/components/Privacy_policy.html');
-    loadComponents('subcomponent', 'src/components/subcomponent-main-section.html');
-  };
-</script>
-
+    window.onload = () => {
+      loadComponents('navigation', '/components/navigation.html');
+      loadComponents('footer', '/components/footer.html');
+      loadComponents('main-section', '/components/main-section.html');
+      loadComponents('parterners', '/components/parterners.html');
+      loadComponents('contact', '/components/contact.html');
+      loadComponents('Privacy_policy', '/components/Privacy_policy.html');
+      loadComponents('subcomponent',' /components/subcomponent-main-section.html');
+    }
+  </script>
 
 </body>
 </html>

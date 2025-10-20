@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <link rel="stylesheet" crossorigin href="/assets/index-BqDGfZk1.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-B96DzDpY.css">
 </head>
 
 <body class="bg-[#f1eeeb]">
-
   <!-- Load Components -->
   <div id="navigation"></div>
   <div id="main-section"></div>
+  <div id="subcomponent"></div>
   <div id="parterners"></div>
   <div id="contact"></div>
 
@@ -42,12 +42,13 @@
     }
 
     window.onload = () => {
-      loadComponents('navigation', 'src/components/navigation.html');
-      loadComponents('footer', 'src/components/footer.html');
-      loadComponents('main-section', 'src/components/main-section.html');
-      loadComponents('parterners', 'src/components/parterners.html');
-      loadComponents('contact', 'src/components/contact.html');
-      loadComponents('Privacy_policy.html', 'src/components/Privacy_policy.html');
+      loadComponents('navigation', '/components/navigation.html');
+      loadComponents('footer', '/components/footer.html');
+      loadComponents('main-section', '/components/main-section.html');
+      loadComponents('parterners', '/components/parterners.html');
+      loadComponents('contact', '/components/contact.html');
+      loadComponents('Privacy_policy', '/components/Privacy_policy.html');
+      loadComponents('subcomponent',' /components/subcomponent-main-section.html');
     }
   </script>
 

@@ -8,13 +8,13 @@
 
 </head>
 
-<body class="bg-[#f1eeeb]">
+<body>
   <!-- Load Components -->
   <div id="navigation"></div>
   <div id="main-section"></div>
   <div id="subcomponent"></div>
   <div id="parterners"></div>
-  <!-- <div id="contact"></div> -->
+  <!-- <div id="contact"></div>  -->
   <div id="footer"></div>
 
 
@@ -82,7 +82,7 @@
             container.innerHTML = section.outerHTML;
             container.scrollIntoView({ behavior: "smooth" });
           } else {
-            // container.innerHTML = `<p>Section "${targetId}" not found! </p>`;
+            container.innerHTML = `<p>Section "${targetId}" not found! </p>`;
           }
         });
     }

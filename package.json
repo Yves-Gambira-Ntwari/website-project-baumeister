@@ -1,0 +1,29 @@
+{
+  "name": "website-project-baumeister",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+"scripts":{
+"dev":"vite",
+"build": "vite build",
+"preview": "vite preview"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yves-Gambira-Ntwari/website-project-baumeister.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yves-Gambira-Ntwari/website-project-baumeister/issues"
+  },
+  "homepage": "https://github.com/Yves-Gambira-Ntwari/website-project-baumeister#readme",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "vite": "^6.4.0"
+  },
+  "dependencies": {
+    "isbot": "^4"
+  }
+}

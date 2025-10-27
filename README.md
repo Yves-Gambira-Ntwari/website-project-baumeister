@@ -1,19 +1,21 @@
 # website-project-baumeister
 
 ## website-Baumeister
+
 The purpose is to learn and to know how to collaborate with others
 
 ### 🧭 Project Setup and Git Remote Configuration
 
 ### The structure of our project
 
-```bash 
-WEBSITE-BAUMEISTER/ Frontend
+```bash
+WEBSITE-BAUMEISTER/
 │
 ├── node_modules/
-├── src/
-│ └── components/
-│ └── Footer.js
+├── public/
+| |__pulblic
+|  └── components/
+│   └── Footer.html
 |
 ├── assets/
 │ └── images/
@@ -26,6 +28,7 @@ WEBSITE-BAUMEISTER/ Frontend
 |__index.html
 └── README.md
 ```
+
 ### ⚠️Run these commands to get on truck
 
 ```bash
@@ -39,11 +42,11 @@ npm install -D vite @tailwindcss/vite
 
 package.json
 
-  "scripts": {
-    "dev":"vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+"scripts":{
+"dev":"vite",
+"build": "vite build",
+"preview": "vite preview"
+}
 
 ### How to run dev
 
@@ -63,3 +66,19 @@ npm run dev
 - refactor: Code changes that don’t change \* behavior but improve structure
 - test: Adding or modifying tests
 - chore: Maintenance tasks, builds, or dependency updates
+
+### Navigation System
+
+This project includes a fully responsive navigation bar built with Tailwind CSS and a lightweight JavaScript toggle.
+
+✅ Features
+
+- Single source of menu links (no duplicate HTML for mobile & desktop)
+
+- Desktop: Horizontal layout with inline links
+
+- Mobile/Tablet: Animated toggle button (☰ / X) that reveals a vertical dropdown
+
+- Minimal JavaScript: Only one toggle function
+
+- Clean & optimized Tailwind classes

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Shape</title>
+
+  <!-- ✅ Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <section class="w-[100%] flex flex-col p-6 ">
+
+    <!-- Decorative Responsive Shape -->
+    <div
+      class="mx-auto bg-[#E31c24] aspect-square w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] xl:w-[25vw] max-w-[450px] rounded-2xl shadow-lg transition-all duration-500 ease-in-out
+      [clip-path:polygon(72%_12%,100%_40%,77%_66%,20%_61%,3%_35%,4%_17%)]">
+    </div>
+
+    <!-- footer contents -->
+
+    <footer class=" h-[250px] md:h-[150px] lg:h-[70px]  md:mb-auto md:gap-10 flex flex-col space-y-15 w-[100% ] text-black md:grid  md:grid-rows-2 md:space-y-10  lg:flex lg:flex-row lg:space-x-25">
+     <!-- left side content -->
+      <div class="flex flex-col space-y-15 md:w-[100%]  md:flex-row md:justify-between   lg:flex lg:w-[50%] lg:gap-10 font-bold">
+        <p class="text-wrap w-[43%] md:w-[21%] lg:w-[30%] ">Agentur Baumeister Böckstraße 13 10967 Berlin</p>
+        <p class="text-wrap w-[73%] md:w-[33%] lg:w-[50%]"><a href="#" class="underline">hallo@agentur-baumeister.com</a> +49 (0)30 - 490 827 87</p>
+      </div>
+      <!-- right side content -->
+      <div class="flex justify-between text-[13px] gap-1 font-bold md:flex md:justify-between lg:w-[50%] lg:flex lg:justify-between lg:flex-wrap " >
+         <a href="#" class="hover:underline">LinkedIn</a>
+          <a href="#" class="hover:underline">Instagram</a>
+          <a href="#" class="hover:underline">Impressum <br><p class="hidden md:hidden lg:block"> Datenschutz </p></a>
+          <a href="#" class="hover:underline sm:block lg:hidden"> Datenschutz</a>
+          
+      </div>
+
+    </footer>
+
+  </section>
+
+</body>
+</html>

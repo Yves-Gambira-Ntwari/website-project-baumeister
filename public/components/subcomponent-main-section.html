@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exact 7-Sided Polygon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .heptagon {
+        clip-path: polygon(
+          19% 5%,
+          70% 0%,
+          100% 23%,
+          100% 75%,
+          70% 100%,
+          10% 95%,
+          0% 30%
+        );
+      }
+      .polygon-color {
+        clip-path: polygon(
+          70% 23%,
+          85% 45%,
+          67% 64%,
+          25% 60%,
+          10% 46%,
+          11% 27%
+        );
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="flex flex-col items-center relative flex-wrap">
+      <div id="about-info">
+        <p class="text-[2rem] flex p-10 sm:mx-10">
+          We are a Berlin-based communications agency specialising in helping
+          companies and brands find their voice and position themselves. Whether
+          it's brand building, identity sharpening, or communication strategy,
+          we bring a fresh perspective to established structures, develop
+          tailor-made communication solutions, and ensure that messages
+          resonate. With over a decade of experience, we have honed our skills
+          in giving brands their unmistakable identity and making them visible
+          in the long term.
+        </p>
+      </div>
+
+      <div
+        class="polygon-color bg-[#ffe800] w-[13rem] h-[15rem] sticky -top-10 z-10"
+      ></div>
+
+
+      <div
+     
+
+        class="sm:flex sm:flex-col sm:p-10 sm:mx-10 max-md:w-full md:flex-row items-center justify-center md:gap-[10rem] gap-0 md:-mt-20 px-10 md:px-0 "
+        id="about" 
+      >
+        <!-- Left Text Section -->
+        <div
+          class="font-semibold max-sm:text-[1.5rem] text-[2rem] md:mt-[5rem] mt-0 md:text-left"
+        >
+          <p>
+            Brand strategy <br /><br />
+            Corporate Identity & <br />
+            Website development <br /><br />
+            SEO & copywriting <br /><br />
+            Media Relations <br /><br />
+            Digital marketing & <br />
+            content production <br /><br />
+            Influencer relations <br /><br />
+          </p>
+        </div>
+
+        <!-- Right Polygon Section -->
+        <div
+          class="heptagon bg-green-800 text-white w-[18rem] h-[30rem] max-sm:mb-30 sm:w-[21rem] sm:h-[30rem] leading-relaxed flex justify-center items-center"
+        >
+          <p class="px-10 text-sm">
+            Our strategic approach is a collaborative journey that starts with
+            analysing the initial situation and leads to messages that cut
+            through the information overload. We take care of content production
+            and maintain relationships with multipliers to position your brand
+            in the best possible way. From analysis to implementation, we
+            accompany you every step of the way, ensuring that every measure is
+            effective.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
